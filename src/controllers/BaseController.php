@@ -4,21 +4,23 @@ use Dws\Slender\Api\ApiException;
 
 class BaseController extends Controller {
 
-	public $api;
-	protected $package; 
-    protected $base_url;
+    public $api;
+    protected $package; 
+    protected $cmsAdminUrl;
     protected $displayFields = array(
                                 'title' => 'Title'
                             );
-	public function __construct(){
-		$this->api = App::make('api');
+    public function __construct(){
+        $this->api = App::make('api');
 
-		if(Auth::check()){
-			$this->api->setAuth(Auth::user()->key);
-		}
+        if(Auth::check()){
+            $this->api->setAuth(Auth::user()->key);
+        }
 
-        $this->base_url = Config::get('slender-cms::cms.admin-url');
-	}
+        $this->cmsAdminUrl = Config::get('slender-cms::cms.admin-url');
+        View::share('admin_url',  $this->cmsAdminUrl);
+    }
+    
 	/**
 	 * Setup the layout used by the controller.
 	 *
@@ -89,9 +91,9 @@ class BaseController extends Controller {
                     $errors->add($key, $msg);
                 }
             }
-            return Redirect::to("{$this->base_url}/{$this->package}/create")->withErrors($errors);
+            return Redirect::to("{$this->cmsAdminUrl}/{$this->package}/create")->withErrors($errors);
         }    
-        return Redirect::to("{$this->base_url}/{$this->package}")->with('success', 'The data successfully saved!');;    
+        return Redirect::to("{$this->cmsAdminUrl}/{$this->package}")->with('success', 'The data successfully saved!');;    
     }
 
     /**
@@ -138,10 +140,10 @@ class BaseController extends Controller {
                     $errors->add($key, $msg);
                 }
             }
-            return Redirect::to("{$this->base_url}/{$this->package}/".$id)->withErrors($errors);
+            return Redirect::to("{$this->cmsAdminUrl}/{$this->package}/".$id)->withErrors($errors);
         }
         
-        return Redirect::to("{$this->base_url}/{$this->package}")->with('success', 'The data successfully saved!');;
+        return Redirect::to("{$this->cmsAdminUrl}/{$this->package}")->with('success', 'The data successfully saved!');;
     }
 
 }

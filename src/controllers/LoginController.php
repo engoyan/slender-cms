@@ -63,20 +63,20 @@ class LoginController extends BaseController {
             {
                 // Redirect to the users page.
                 //
-                return Redirect::to($this->base_url.'/')->with('success', 'You have logged in successfully');
+                return Redirect::to($this->cmsAdminUrl.'/')->with('success', 'You have logged in successfully');
             }
             else
             {
                 // Redirect to the login page.
                 //
-                return Redirect::to($this->base_url.'/login')->with('error', 'Email/password invalid.');
+                return Redirect::to($this->cmsAdminUrl.'/login')->with('error', 'Email/password invalid.');
             }
         }
 
         // Something went wrong.
         //
 
-        return Redirect::to($this->base_url.'/login')->withErrors($validator->messages());
+        return Redirect::to($this->cmsAdminUrl.'/login')->withErrors($validator->messages());
 	}
 
 	/**
@@ -131,6 +131,6 @@ class LoginController extends BaseController {
 
         // Redirect to the login page.
         //
-        return Redirect::to($this->base_url.'/login')->with('success', 'Logged out with success!');
+        return Redirect::to($this->cmsAdminUrl.'/login')->with('success', 'Logged out with success!');
     }
 }

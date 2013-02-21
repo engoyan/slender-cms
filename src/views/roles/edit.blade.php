@@ -7,7 +7,6 @@
     <input type="hidden" name="_method" value="PUT">
 
     @foreach ($options->fields as $field => $option)
-        {{-- var_dump($option) --}}
         @if(is_array($option))
         <div class="control-group {{ $errors->has($field) ? 'error' : '' }}">
             <label class="control-label" for="{{ $field }}">{{ $field }}</label>
@@ -168,7 +167,7 @@
     <div class="control-group">
         <div class="controls">
             <button type="submit" class="btn btn-primary">Update</button>
-            <button type="button" onclick="document.location='/{{ Config::get('slender-cms::cms.admin-url') }}/{{ $package }}'" class="btn">Cancel</button>
+            <button type="button" onclick="document.location='/{{ $admin_url }}/{{ $package }}'" class="btn">Cancel</button>
         </div>
     </div>
     <!-- ./ Create button -->

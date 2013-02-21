@@ -3,7 +3,7 @@
 {{-- Content --}}
 @section('content')
 <h2>New {{ ucfirst(str_singular($package)) }}</h2>
-<form method="{{ $method }}" action="/{{ Config::get('slender-cms::cms.admin-url') }}/{{ $package }}" class="form-horizontal">
+<form method="{{ $method }}" action="/{{ $admin_url }}/{{ $package }}" class="form-horizontal">
 
     @foreach ($options->fields as $field => $option)
 
@@ -21,7 +21,7 @@
     <div class="control-group">
         <div class="controls">
             <button type="submit" class="btn btn-primary">Create</button>
-            <button type="button" onclick="document.location='/{{ Config::get('slender-cms::cms.admin-url') }}/{{ $package }}'" class="btn">Cancel</button>
+            <button type="button" onclick="document.location='/{{ $admin_url }}/{{ $package }}'" class="btn">Cancel</button>
         </div>
     </div>
     <!-- ./ Create button -->

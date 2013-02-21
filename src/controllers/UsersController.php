@@ -75,7 +75,7 @@ class UsersController extends BaseController {
         {
             // Something went wrong.
             //
-            return Redirect::to("/{$this->base_url}/{$this->package}/".$id)->withErrors($validator->messages());
+            return Redirect::to("/{$this->cmsAdminUrl}/{$this->package}/".$id)->withErrors($validator->messages());
         }
 
         return parent::update($id);
@@ -85,7 +85,7 @@ class UsersController extends BaseController {
 	public function destroy($id)
 	{
         $response = $this->api->delete("users/" . $id);
-        return Redirect::to("/{$this->base_url}/{$this->package}");
+        return Redirect::to("/{$this->cmsAdminUrl}/{$this->package}");
 	}
 
 }

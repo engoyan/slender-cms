@@ -9,7 +9,7 @@
                 @foreach($displayFields as $field => $title)
                     <th>{{ $title }}</th>
                 @endforeach
-                <th><a href='/{{ Config::get('slender-cms::cms.admin-url') }}   /{{ $package }}/create' class="btn btn-mini btn-success">Create New</a></th>
+                <th><a href='/{{ $admin_url }}   /{{ $package }}/create' class="btn btn-mini btn-success">Create New</a></th>
             </tr>
         </thead>
         <tbody>
@@ -20,8 +20,8 @@
                 @endforeach
                 <td style='width:100px'>
                     <div class="btn-group">
-                      <a href='/{{ Config::get('slender-cms::cms.admin-url') }}/{{ $package }}/{{ $datum->_id }}/delete' class="btn btn-mini btn-danger">Delete</a>
-                      <a href='/{{ Config::get('slender-cms::cms.admin-url') }}/{{ $package }}/{{ $datum->_id }}' class="btn btn-mini btn-primary">Edit</a>
+                      <a href='/{{ $admin_url }}/{{ $package }}/{{ $datum->_id }}/delete' class="btn btn-mini btn-danger">Delete</a>
+                      <a href='/{{ $admin_url }}/{{ $package }}/{{ $datum->_id }}' class="btn btn-mini btn-primary">Edit</a>
                     </div>
                 </td>
             </tr>

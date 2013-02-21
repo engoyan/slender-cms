@@ -24,7 +24,7 @@
     <div class="control-group">
         <div class="controls">
             <button type="submit" class="btn btn-primary">Save</button>
-            <button type="button" onclick="document.location='/{{ Config::get('slender-cms::cms.admin-url') }}/{{ $package }}'" class="btn">Cancel</button>
+            <button type="button" onclick="document.location='/{{ $admin_url }}/{{ $package }}'" class="btn">Cancel</button>
         </div>
     </div>
     <!-- ./ Create button -->

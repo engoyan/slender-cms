@@ -77,14 +77,14 @@
                 <p class="navbar-text pull-right">
                   Logged in as <a href="#" class="navbar-link">{{Auth::user()->first_name}} {{Auth::user()->last_name}}</a>
 
-                  <a href="/{{ Config::get('slender-cms::cms.admin-url').'/login/logout' }}">Logout</a>
+                  <a href="/{{ $admin_url.'/login/logout' }}">Logout</a>
                 </p>
                 @endif
                 <ul class="nav">
                   <li class="active"><a href="/">Home</a></li>
-                  <li><a href="/{{ Config::get('slender-cms::cms.admin-url') }}/sites">Sites</a></li>
-                  <li><a href="/{{ Config::get('slender-cms::cms.admin-url') }}/roles">Roles</a></li>
-                  <li><a href="/{{ Config::get('slender-cms::cms.admin-url') }}/users">Users</a></li>
+                  <li><a href="/{{ $admin_url }}/sites">Sites</a></li>
+                  <li><a href="/{{ $admin_url }}/roles">Roles</a></li>
+                  <li><a href="/{{ $admin_url }}/users">Users</a></li>
                   <li><a href="#about">About</a></li>
                   <li><a href="#contact">Contact</a></li>
                 </ul>
