@@ -1,10 +1,10 @@
 {
-    "name": "dws/slender-cms",
+    "name": "engoyan/slender-cms",
     "description": "",
     "authors": [
         {
             "name": "Diamond Web Services",
-            "email": "daniel@eye4web.dk"
+            "email": "vadim@engoyan.com"
         }
     ],
     "require": {
