@@ -6,7 +6,8 @@ Route::get(Config::get('slender-cms::cms.admin-url').'/login/logout', 'LoginCont
 
 
 // Resources with Auth
-Route::group(array('before' => 'cms_auth', 'prefix' => Config::get('slender-cms::cms.admin-url')), function()
+$adminUrl = Config::get('slender-cms::cms.admin-url');
+Route::group(array('before' => 'cms_auth', 'prefix' => $adminUrl), function()
 {
     Route::get('/', 'HomeController@index');
 
@@ -25,6 +26,9 @@ Route::group(array('before' => 'cms_auth', 'prefix' => Config::get('slender-cms:
 
 Route::filter('cms_auth', function()
 {
-    if (Auth::guest()) return Redirect::to(Config::get('slender-cms::cms.admin-url').'/login');
+    if (Auth::guest()){
+        $adminUrl = Config::get('slender-cms::cms.admin-url');
+        return Redirect::to("{$adminUrl}/login");
+    }
 });
 
