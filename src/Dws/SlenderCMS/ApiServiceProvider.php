@@ -24,8 +24,7 @@ class ApiServiceProvider extends BaseServiceProvider
     public function register()
     {
         $this->app['api'] = $this->app->share(function($app){
-
-            $config = $app['config']['api.slender'];
+            $config = $app['slender-cms::config']['api.slender'];
             return new ApiClient($config['host'], $config['auth']);
         });
     }
